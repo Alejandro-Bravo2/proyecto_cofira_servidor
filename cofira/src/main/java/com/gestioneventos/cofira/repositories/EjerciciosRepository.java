@@ -6,9 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface EjerciciosRepository extends JpaRepository<Ejercicios, Long> {
-    // Buscar ejercicios por sala
-    List<Ejercicios> findBySalaDeGimnasioId(Long salaDeGimnasioId);
-
     // Buscar ejercicios por nombre
     List<Ejercicios> findByNombreEjercicioContainingIgnoreCase(String nombre);
 

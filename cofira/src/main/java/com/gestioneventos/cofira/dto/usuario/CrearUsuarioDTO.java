@@ -2,6 +2,8 @@ package com.gestioneventos.cofira.dto.usuario;
 
 import java.util.List;
 
+import com.gestioneventos.cofira.enums.Rol;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -21,7 +23,7 @@ public class CrearUsuarioDTO {
     @NotBlank(message = "La contraseña no puede estar vacía")
     private String password;
 
-    private String rol;
+    private Rol rol;
     private Integer edad;
     private Double peso;
     private Double altura;

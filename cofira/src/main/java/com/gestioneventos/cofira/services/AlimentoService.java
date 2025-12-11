@@ -22,9 +22,16 @@ public class AlimentoService {
         this.alimentoRepository = alimentoRepository;
     }
 
-    public List<AlimentoDTO> listarAlimentos() {
-        return alimentoRepository.findAll()
-                .stream()
+    public List<AlimentoDTO> listarAlimentos(String nombre) {
+        List<Alimento> alimentos;
+        
+        if (nombre != null && !nombre.trim().isEmpty()) {
+            alimentos = alimentoRepository.findByNombreContainingIgnoreCase(nombre);
+        } else {
+            alimentos = alimentoRepository.findAll();
+        }
+        
+        return alimentos.stream()
                 .map(this::convertirADTO)
                 .collect(Collectors.toList());
     }

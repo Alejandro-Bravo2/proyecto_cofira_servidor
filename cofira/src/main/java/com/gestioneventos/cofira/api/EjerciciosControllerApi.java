@@ -38,15 +38,6 @@ public interface EjerciciosControllerApi {
     ResponseEntity<EjerciciosDTO> obtenerEjercicio(
         @Parameter(description = "ID del ejercicio a obtener", required = true) @PathVariable Long id);
 
-    @Operation(summary = "Obtener ejercicios por sala", description = "Obtiene todos los ejercicios asociados a una sala específica")
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Lista de ejercicios de la sala obtenida exitosamente",
-            content = @Content(mediaType = "application/json", schema = @Schema(implementation = EjerciciosDTO.class))),
-        @ApiResponse(responseCode = "404", description = "Sala no encontrada", content = @Content)
-    })
-    ResponseEntity<List<EjerciciosDTO>> obtenerEjerciciosPorSala(
-        @Parameter(description = "ID de la sala", required = true) @PathVariable Long salaId);
-
     @Operation(summary = "Crear un nuevo ejercicio", description = "Crea un nuevo ejercicio en el sistema")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Ejercicio creado exitosamente",

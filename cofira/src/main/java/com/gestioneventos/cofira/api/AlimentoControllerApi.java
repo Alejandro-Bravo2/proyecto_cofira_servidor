@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gestioneventos.cofira.dto.alimento.AlimentoDTO;
 import com.gestioneventos.cofira.dto.alimento.CrearAlimentoDTO;
@@ -22,12 +23,15 @@ import jakarta.validation.Valid;
 @Tag(name = "Alimentos", description = "API para gestión de alimentos")
 public interface AlimentoControllerApi {
 
-    @Operation(summary = "Listar todos los alimentos", description = "Obtiene una lista de todos los alimentos disponibles")
+    @Operation(summary = "Listar todos los alimentos", 
+               description = "Obtiene una lista de todos los alimentos disponibles. Opcionalmente se puede filtrar por nombre.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Lista de alimentos obtenida exitosamente",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = AlimentoDTO.class)))
     })
-    ResponseEntity<List<AlimentoDTO>> listarAlimentos();
+    ResponseEntity<List<AlimentoDTO>> listarAlimentos(
+        @Parameter(description = "Nombre del alimento para filtrar (opcional)", required = false) 
+        @RequestParam(required = false) String nombre);
 
     @Operation(summary = "Obtener alimento por ID", description = "Obtiene los detalles de un alimento específico")
     @ApiResponses(value = {

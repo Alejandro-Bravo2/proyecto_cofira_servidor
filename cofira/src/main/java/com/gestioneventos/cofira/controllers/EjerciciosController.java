@@ -20,6 +20,7 @@ import com.gestioneventos.cofira.dto.ejercicios.ModificarEjerciciosDTO;
 import com.gestioneventos.cofira.services.EjerciciosService;
 
 import jakarta.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @RequestMapping("/ejercicios")
@@ -32,30 +33,28 @@ public class EjerciciosController implements EjerciciosControllerApi {
     }
 
     @GetMapping
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<List<EjerciciosDTO>> listarEjercicios() {
         List<EjerciciosDTO> ejercicios = ejerciciosService.listarEjercicios();
         return ResponseEntity.ok(ejercicios);
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<EjerciciosDTO> obtenerEjercicio(@PathVariable Long id) {
         EjerciciosDTO ejercicio = ejerciciosService.obtenerEjercicio(id);
         return ResponseEntity.ok(ejercicio);
     }
 
-    @GetMapping("/sala/{salaId}")
-    public ResponseEntity<List<EjerciciosDTO>> obtenerEjerciciosPorSala(@PathVariable Long salaId) {
-        List<EjerciciosDTO> ejercicios = ejerciciosService.obtenerEjerciciosPorSala(salaId);
-        return ResponseEntity.ok(ejercicios);
-    }
-
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<EjerciciosDTO> crearEjercicio(@RequestBody @Valid CrearEjerciciosDTO dto) {
         EjerciciosDTO nuevoEjercicio = ejerciciosService.crearEjercicio(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoEjercicio);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<EjerciciosDTO> actualizarEjercicio(@PathVariable Long id,
                                                              @RequestBody @Valid ModificarEjerciciosDTO dto) {
         EjerciciosDTO ejercicioActualizado = ejerciciosService.actualizarEjercicio(id, dto);
@@ -63,6 +62,7 @@ public class EjerciciosController implements EjerciciosControllerApi {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> eliminarEjercicio(@PathVariable Long id) {
         ejerciciosService.eliminarEjercicio(id);
         return ResponseEntity.noContent().build();

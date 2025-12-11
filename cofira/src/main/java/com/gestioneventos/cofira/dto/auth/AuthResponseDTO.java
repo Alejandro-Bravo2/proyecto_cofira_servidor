@@ -1,5 +1,7 @@
 package com.gestioneventos.cofira.dto.auth;
 
+import com.gestioneventos.cofira.enums.Rol;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,5 +18,5 @@ public class AuthResponseDTO {
     private Long id;
     private String username;
     private String email;
-    private String rol;
+    private Rol rol;
 }

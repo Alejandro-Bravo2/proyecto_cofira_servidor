@@ -37,7 +37,4 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     // Usuarios con plan activo (Query JPQL)
     @Query("SELECT u FROM Usuario u WHERE u.plan.subscripcionActiva = true")
     List<Usuario> findUsuariosConPlanActivo();
-
-    // Usuarios de una sala específica
-    List<Usuario> findBySalaDeGimnasioId(Long salaId);
 }

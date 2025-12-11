@@ -6,6 +6,7 @@ import com.gestioneventos.cofira.dto.auth.RegisterRequestDTO;
 import com.gestioneventos.cofira.dto.auth.UserInfoDTO;
 import com.gestioneventos.cofira.entities.TokenRevocado;
 import com.gestioneventos.cofira.entities.Usuario;
+import com.gestioneventos.cofira.enums.Rol;
 import com.gestioneventos.cofira.exceptions.RecursoDuplicadoException;
 import com.gestioneventos.cofira.exceptions.RecursoNoEncontradoException;
 import com.gestioneventos.cofira.repositories.TokenRevocadoRepository;
@@ -52,10 +53,13 @@ public class AuthService {
 
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
 
-        String role = userDetails.getAuthorities().stream()
+        String roleString = userDetails.getAuthorities().stream()
                 .findFirst()
                 .map(item -> item.getAuthority().replace("ROLE_", ""))
                 .orElse("");
+        
+        // Convertir el String a Rol enum
+        Rol rol = roleString.equals("ADMIN") ? Rol.ADMIN : Rol.USER;
 
         return AuthResponseDTO.builder()
                 .token(jwt)
@@ -63,7 +67,7 @@ public class AuthService {
                 .id(userDetails.getId())
                 .username(userDetails.getUsername())
                 .email(userDetails.getEmail())
-                .rol(role)
+                .rol(rol)
                 .build();
     }
 
@@ -77,13 +81,10 @@ public class AuthService {
             throw new RecursoDuplicadoException("Error: El email ya está en uso!");
         }
 
-        // Determinar el rol
-        String rol = "PARTICIPANTE";
-        if (registerRequest.getRol() != null && !registerRequest.getRol().isEmpty()) {
-            String rolUpper = registerRequest.getRol().toUpperCase();
-            if (rolUpper.equals("ORGANIZADOR") || rolUpper.equals("PARTICIPANTE")) {
-                rol = rolUpper;
-            }
+        // Determinar el rol (por defecto USER si no se especifica o es inválido)
+        Rol rol = Rol.USER;
+        if (registerRequest.getRol() != null) {
+            rol = registerRequest.getRol();
         }
 
         Usuario usuario = Usuario.builder()

@@ -1,5 +1,7 @@
 package com.gestioneventos.cofira.dto.auth;
 
+import com.gestioneventos.cofira.enums.Rol;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,8 +26,8 @@ public class UserInfoDTO {
     @Schema(description = "Email del usuario", example = "juan@ejemplo.com")
     private String email;
 
-    @Schema(description = "Rol del usuario", example = "PARTICIPANTE")
-    private String rol;
+    @Schema(description = "Rol del usuario", example = "USER")
+    private Rol rol;
 
     @Schema(description = "Edad del usuario en años", example = "25")
     private Integer edad;

@@ -5,6 +5,7 @@ import com.gestioneventos.cofira.dto.usuario.ModificarUsuarioDTO;
 import com.gestioneventos.cofira.dto.usuario.UsuarioDetalleDTO;
 import com.gestioneventos.cofira.dto.usuario.UsuarioListadoDTO;
 import com.gestioneventos.cofira.entities.Usuario;
+import com.gestioneventos.cofira.enums.Rol;
 import com.gestioneventos.cofira.exceptions.RecursoDuplicadoException;
 import com.gestioneventos.cofira.exceptions.RecursoNoEncontradoException;
 import com.gestioneventos.cofira.repositories.UsuarioRepository;
@@ -62,6 +63,12 @@ public class UsuarioService {
         usuario.setUsername(crearUsuarioDTO.getUsername());
         usuario.setEmail(crearUsuarioDTO.getEmail());
         usuario.setPassword(crearUsuarioDTO.getPassword()); // Nota: debería hashearse
+        
+        // Establecer el rol (si se proporciona, sino usar el default USER)
+        if (crearUsuarioDTO.getRol() != null) {
+            usuario.setRol(crearUsuarioDTO.getRol());
+        }
+        
         usuario.setEdad(crearUsuarioDTO.getEdad());
         usuario.setPeso(crearUsuarioDTO.getPeso());
         usuario.setAltura(crearUsuarioDTO.getAltura());

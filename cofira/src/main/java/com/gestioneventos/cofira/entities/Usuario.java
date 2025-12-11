@@ -3,6 +3,8 @@ package com.gestioneventos.cofira.entities;
 import java.util.List;
 import java.util.Objects;
 
+import com.gestioneventos.cofira.enums.Rol;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -39,8 +41,9 @@ public class Usuario {
     private String password;
 
     @NotNull
+    @Enumerated(EnumType.STRING)
     @Builder.Default
-    private String rol = "PARTICIPANTE";
+    private Rol rol = Rol.USER;
 
     private Integer edad;
     private Double peso;

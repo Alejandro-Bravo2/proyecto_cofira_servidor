@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gestioneventos.cofira.api.AlimentoControllerApi;
@@ -20,6 +21,7 @@ import com.gestioneventos.cofira.dto.alimento.ModificarAlimentoDTO;
 import com.gestioneventos.cofira.services.AlimentoService;
 
 import jakarta.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @RequestMapping("/alimentos")
@@ -32,24 +34,29 @@ public class AlimentoController implements AlimentoControllerApi {
     }
 
     @GetMapping
-    public ResponseEntity<List<AlimentoDTO>> listarAlimentos() {
-        List<AlimentoDTO> alimentos = alimentoService.listarAlimentos();
+    @PreAuthorize("isAuthenticated()")
+    public ResponseEntity<List<AlimentoDTO>> listarAlimentos(
+            @RequestParam(required = false) String nombre) {
+        List<AlimentoDTO> alimentos = alimentoService.listarAlimentos(nombre);
         return ResponseEntity.ok(alimentos);
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<AlimentoDTO> obtenerAlimento(@PathVariable Long id) {
         AlimentoDTO alimento = alimentoService.obtenerAlimento(id);
         return ResponseEntity.ok(alimento);
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<AlimentoDTO> crearAlimento(@RequestBody @Valid CrearAlimentoDTO dto) {
         AlimentoDTO nuevoAlimento = alimentoService.crearAlimento(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoAlimento);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<AlimentoDTO> actualizarAlimento(@PathVariable Long id,
                                                           @RequestBody @Valid ModificarAlimentoDTO dto) {
         AlimentoDTO alimentoActualizado = alimentoService.actualizarAlimento(id, dto);
@@ -57,6 +64,7 @@ public class AlimentoController implements AlimentoControllerApi {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> eliminarAlimento(@PathVariable Long id) {
         alimentoService.eliminarAlimento(id);
         return ResponseEntity.noContent().build();

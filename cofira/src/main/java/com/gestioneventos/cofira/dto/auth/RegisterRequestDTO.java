@@ -1,5 +1,7 @@
 package com.gestioneventos.cofira.dto.auth;
 
+import com.gestioneventos.cofira.enums.Rol;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -19,5 +21,5 @@ public class RegisterRequestDTO {
     @NotBlank(message = "La contraseña no puede estar vacía")
     private String password;
 
-    private String rol; // PARTICIPANTE o ORGANIZADOR
+    private Rol rol; // USER o ADMIN
 }
