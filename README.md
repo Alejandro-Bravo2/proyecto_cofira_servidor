@@ -806,15 +806,15 @@ Se incluye una colección completa en `postman/Cofira_API_Collection.json` con:
 
 #### 1. Login Exitoso
 
-![Login](docs/screenshots/01_login.png)
+![alt text](image.png)
 
 #### 2. Usuario Actual (`/auth/me`)
 
-![Me](docs/screenshots/02_me.png)
+![alt text](image-1.png)
 
-#### 3. Crear Plan como ADMIN
+#### 3. Crear Ejercicios como ADMIN
 
-![Create Plan](docs/screenshots/03_create_plan_admin.png)
+![alt text](image-2.png)
 
 #### 4. Error 403 - USER intenta crear ejercicio (solo ADMIN)
 

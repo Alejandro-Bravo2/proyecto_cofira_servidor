@@ -23,7 +23,7 @@ import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
-@RequestMapping("/ejercicios")
+@RequestMapping("/api/ejercicios")
 public class EjerciciosController implements EjerciciosControllerApi {
 
     private final EjerciciosService ejerciciosService;

@@ -23,7 +23,7 @@ import com.gestioneventos.cofira.services.UsuarioService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/api/usuarios")
 public class UsuarioController implements UsuarioControllerApi {
 
     private final UsuarioService usuarioService;

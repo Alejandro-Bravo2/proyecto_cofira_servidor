@@ -22,7 +22,7 @@ import com.gestioneventos.cofira.services.ObjetivosService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/objetivos")
+@RequestMapping("/api/objetivos")
 public class ObjetivosController implements ObjetivosControllerApi {
 
     private final ObjetivosService objetivosService;

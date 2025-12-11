@@ -24,7 +24,7 @@ import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
-@RequestMapping("/alimentos")
+@RequestMapping("/api/alimentos")
 public class AlimentoController implements AlimentoControllerApi {
 
     private final AlimentoService alimentoService;

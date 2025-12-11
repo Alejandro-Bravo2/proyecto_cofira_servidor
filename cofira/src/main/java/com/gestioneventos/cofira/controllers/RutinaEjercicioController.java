@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rutinas-ejercicio")
+@RequestMapping("/api/rutinas-ejercicio")
 public class RutinaEjercicioController implements RutinaEjercicioControllerApi {
 
     private final RutinaEjercicioService rutinaEjercicioService;

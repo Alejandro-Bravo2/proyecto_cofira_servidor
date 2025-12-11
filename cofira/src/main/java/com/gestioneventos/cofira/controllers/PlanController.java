@@ -22,7 +22,7 @@ import com.gestioneventos.cofira.services.PlanService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/planes")
+@RequestMapping("/api/planes")
 public class PlanController implements PlanControllerApi {
 
     private final PlanService planService;

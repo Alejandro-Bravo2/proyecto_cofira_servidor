@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rutinas-alimentacion")
+@RequestMapping("/api/rutinas-alimentacion")
 public class RutinaAlimentacionController implements RutinaAlimentacionControllerApi {
 
     private final RutinaAlimentacionService rutinaAlimentacionService;
