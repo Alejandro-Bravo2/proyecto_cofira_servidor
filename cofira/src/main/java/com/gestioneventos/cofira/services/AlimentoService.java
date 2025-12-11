@@ -1,10 +1,16 @@
 package com.gestioneventos.cofira.services;
 
-import com.gestioneventos.cofira.entities.Alimento;
-import com.gestioneventos.cofira.repositories.AlimentoRepository;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.gestioneventos.cofira.dto.alimento.AlimentoDTO;
+import com.gestioneventos.cofira.dto.alimento.CrearAlimentoDTO;
+import com.gestioneventos.cofira.dto.alimento.ModificarAlimentoDTO;
+import com.gestioneventos.cofira.entities.Alimento;
+import com.gestioneventos.cofira.exceptions.RecursoNoEncontradoException;
+import com.gestioneventos.cofira.repositories.AlimentoRepository;
 
 @Service
 public class AlimentoService {
@@ -16,36 +22,54 @@ public class AlimentoService {
         this.alimentoRepository = alimentoRepository;
     }
 
-    public List<Alimento> listarAlimentos() {
-        return alimentoRepository.findAll();
+    public List<AlimentoDTO> listarAlimentos() {
+        return alimentoRepository.findAll()
+                .stream()
+                .map(this::convertirADTO)
+                .collect(Collectors.toList());
     }
 
-    public Alimento obtenerAlimento(Long id) {
-        return alimentoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(ALIMENTO_NO_ENCONTRADO + id));
-    }
-
-    public Alimento crearAlimento(Alimento alimento) {
-        return alimentoRepository.save(alimento);
-    }
-
-    public Alimento actualizarAlimento(Long id, Alimento alimentoActualizado) {
+    public AlimentoDTO obtenerAlimento(Long id) {
         Alimento alimento = alimentoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(ALIMENTO_NO_ENCONTRADO + id));
+                .orElseThrow(() -> new RecursoNoEncontradoException(ALIMENTO_NO_ENCONTRADO + id));
+        return convertirADTO(alimento);
+    }
 
-        if (alimentoActualizado.getAlimentosFavoritos() != null) {
-            alimento.setAlimentosFavoritos(alimentoActualizado.getAlimentosFavoritos());
+    public AlimentoDTO crearAlimento(CrearAlimentoDTO dto) {
+        Alimento alimento = new Alimento();
+        alimento.setNombre(dto.getNombre());
+        alimento.setIngredientes(dto.getIngredientes());
+
+        Alimento guardado = alimentoRepository.save(alimento);
+        return convertirADTO(guardado);
+    }
+
+    public AlimentoDTO actualizarAlimento(Long id, ModificarAlimentoDTO dto) {
+        Alimento alimento = alimentoRepository.findById(id)
+                .orElseThrow(() -> new RecursoNoEncontradoException(ALIMENTO_NO_ENCONTRADO + id));
+
+        if (dto.getNombre() != null) {
+            alimento.setNombre(dto.getNombre());
         }
-        if (alimentoActualizado.getListaAlergias() != null) {
-            alimento.setListaAlergias(alimentoActualizado.getListaAlergias());
+        if (dto.getIngredientes() != null) {
+            alimento.setIngredientes(dto.getIngredientes());
         }
 
-        return alimentoRepository.save(alimento);
+        Alimento actualizado = alimentoRepository.save(alimento);
+        return convertirADTO(actualizado);
     }
 
     public void eliminarAlimento(Long id) {
         Alimento alimento = alimentoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(ALIMENTO_NO_ENCONTRADO + id));
+                .orElseThrow(() -> new RecursoNoEncontradoException(ALIMENTO_NO_ENCONTRADO + id));
         alimentoRepository.delete(alimento);
+    }
+
+    private AlimentoDTO convertirADTO(Alimento alimento) {
+        AlimentoDTO dto = new AlimentoDTO();
+        dto.setId(alimento.getId());
+        dto.setNombre(alimento.getNombre());
+        dto.setIngredientes(alimento.getIngredientes());
+        return dto;
     }
 }

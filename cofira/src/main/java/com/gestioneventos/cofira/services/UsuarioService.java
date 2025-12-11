@@ -19,9 +19,15 @@ public class UsuarioService {
     private static final String USUARIO_NO_ENCONTRADO = "Usuario no encontrado con id ";
 
     private final UsuarioRepository usuarioRepository;
+    private final RutinaAlimentacionService rutinaAlimentacionService;
+    private final RutinaEjercicioService rutinaEjercicioService;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository,
+                         RutinaAlimentacionService rutinaAlimentacionService,
+                         RutinaEjercicioService rutinaEjercicioService) {
         this.usuarioRepository = usuarioRepository;
+        this.rutinaAlimentacionService = rutinaAlimentacionService;
+        this.rutinaEjercicioService = rutinaEjercicioService;
     }
 
     public Page<UsuarioListadoDTO> listarUsuarios(String nombre, Pageable pageable) {
@@ -59,6 +65,8 @@ public class UsuarioService {
         usuario.setEdad(crearUsuarioDTO.getEdad());
         usuario.setPeso(crearUsuarioDTO.getPeso());
         usuario.setAltura(crearUsuarioDTO.getAltura());
+        usuario.setAlimentosFavoritos(crearUsuarioDTO.getAlimentosFavoritos());
+        usuario.setAlergias(crearUsuarioDTO.getAlergias());
 
         Usuario usuarioGuardado = usuarioRepository.save(usuario);
         return convertirAUsuarioDetalleDTO(usuarioGuardado);
@@ -85,6 +93,12 @@ public class UsuarioService {
         }
         if (modificarUsuarioDTO.getAltura() != null) {
             usuario.setAltura(modificarUsuarioDTO.getAltura());
+        }
+        if (modificarUsuarioDTO.getAlimentosFavoritos() != null) {
+            usuario.setAlimentosFavoritos(modificarUsuarioDTO.getAlimentosFavoritos());
+        }
+        if (modificarUsuarioDTO.getAlergias() != null) {
+            usuario.setAlergias(modificarUsuarioDTO.getAlergias());
         }
 
         Usuario usuarioActualizado = usuarioRepository.save(usuario);
@@ -120,6 +134,21 @@ public class UsuarioService {
         dto.setEdad(usuario.getEdad());
         dto.setPeso(usuario.getPeso());
         dto.setAltura(usuario.getAltura());
+        dto.setAlimentosFavoritos(usuario.getAlimentosFavoritos());
+        dto.setAlergias(usuario.getAlergias());
+
+        if (usuario.getRutinaAlimentacion() != null) {
+            dto.setRutinaAlimentacion(
+                rutinaAlimentacionService.convertirADTO(usuario.getRutinaAlimentacion())
+            );
+        }
+
+        if (usuario.getRutinaEjercicio() != null) {
+            dto.setRutinaEjercicio(
+                rutinaEjercicioService.convertirADTO(usuario.getRutinaEjercicio())
+            );
+        }
+
         return dto;
     }
 

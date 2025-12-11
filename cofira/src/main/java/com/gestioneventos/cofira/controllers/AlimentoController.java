@@ -1,47 +1,58 @@
 package com.gestioneventos.cofira.controllers;
 
-import com.gestioneventos.cofira.entities.Alimento;
-import com.gestioneventos.cofira.services.AlimentoService;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.gestioneventos.cofira.api.AlimentoControllerApi;
+import com.gestioneventos.cofira.dto.alimento.AlimentoDTO;
+import com.gestioneventos.cofira.dto.alimento.CrearAlimentoDTO;
+import com.gestioneventos.cofira.dto.alimento.ModificarAlimentoDTO;
+import com.gestioneventos.cofira.services.AlimentoService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/alimentos")
-public class AlimentoController {
+public class AlimentoController implements AlimentoControllerApi {
 
     private final AlimentoService alimentoService;
 
-    @Autowired
     public AlimentoController(AlimentoService alimentoService) {
         this.alimentoService = alimentoService;
     }
 
     @GetMapping
-    public ResponseEntity<List<Alimento>> listarAlimentos() {
-        List<Alimento> alimentos = alimentoService.listarAlimentos();
+    public ResponseEntity<List<AlimentoDTO>> listarAlimentos() {
+        List<AlimentoDTO> alimentos = alimentoService.listarAlimentos();
         return ResponseEntity.ok(alimentos);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Alimento> obtenerAlimento(@PathVariable Long id) {
-        Alimento alimento = alimentoService.obtenerAlimento(id);
+    public ResponseEntity<AlimentoDTO> obtenerAlimento(@PathVariable Long id) {
+        AlimentoDTO alimento = alimentoService.obtenerAlimento(id);
         return ResponseEntity.ok(alimento);
     }
 
     @PostMapping
-    public ResponseEntity<Alimento> crearAlimento(@RequestBody @Valid Alimento alimento) {
-        Alimento nuevoAlimento = alimentoService.crearAlimento(alimento);
-        return ResponseEntity.ok(nuevoAlimento);
+    public ResponseEntity<AlimentoDTO> crearAlimento(@RequestBody @Valid CrearAlimentoDTO dto) {
+        AlimentoDTO nuevoAlimento = alimentoService.crearAlimento(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nuevoAlimento);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Alimento> actualizarAlimento(@PathVariable Long id,
-                                                        @RequestBody Alimento alimento) {
-        Alimento alimentoActualizado = alimentoService.actualizarAlimento(id, alimento);
+    public ResponseEntity<AlimentoDTO> actualizarAlimento(@PathVariable Long id,
+                                                          @RequestBody @Valid ModificarAlimentoDTO dto) {
+        AlimentoDTO alimentoActualizado = alimentoService.actualizarAlimento(id, dto);
         return ResponseEntity.ok(alimentoActualizado);
     }
 

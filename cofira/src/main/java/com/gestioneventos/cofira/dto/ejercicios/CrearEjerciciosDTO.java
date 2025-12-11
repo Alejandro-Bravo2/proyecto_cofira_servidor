@@ -15,6 +15,7 @@ public class CrearEjerciciosDTO {
     @NotNull(message = "El número de repeticiones no puede ser nulo")
     private Integer repeticiones;
 
-    @NotNull(message = "El ID de la sala no puede ser nulo")
-    private Long salaDeGimnasioId;
+    private Integer tiempoDescansoSegundos;
+    private String descripcion;
+    private String grupoMuscular;
 }

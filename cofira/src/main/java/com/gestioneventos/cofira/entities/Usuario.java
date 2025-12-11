@@ -1,11 +1,16 @@
 package com.gestioneventos.cofira.entities;
 
+import java.util.List;
+import java.util.Objects;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
-
-import java.util.Objects;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
@@ -41,19 +46,29 @@ public class Usuario {
     private Double peso;
     private Double altura;
 
+    @ElementCollection
+    @CollectionTable(name = "usuario_alimentos_favoritos", joinColumns = @JoinColumn(name = "usuario_id"))
+    @Column(name = "alimento_favorito")
+    private List<String> alimentosFavoritos;
+
+    @ElementCollection
+    @CollectionTable(name = "usuario_alergias", joinColumns = @JoinColumn(name = "usuario_id"))
+    @Column(name = "alergia")
+    private List<String> alergias;
+
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Objetivos objetivos;
 
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Plan plan;
 
-    @ManyToOne
-    @JoinColumn(name = "sala_gimnasio_id")
-    private SalaDeGimnasio salaDeGimnasio;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rutina_alimentacion_id")
+    private RutinaAlimentacion rutinaAlimentacion;
 
-    @ManyToOne
-    @JoinColumn(name = "alimento_id")
-    private Alimento alimento;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rutina_ejercicio_id")
+    private RutinaEjercicio rutinaEjercicio;
 
     @Override
     public boolean equals(Object o) {

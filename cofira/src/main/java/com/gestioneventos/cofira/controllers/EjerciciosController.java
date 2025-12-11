@@ -1,53 +1,64 @@
 package com.gestioneventos.cofira.controllers;
 
-import com.gestioneventos.cofira.entities.Ejercicios;
-import com.gestioneventos.cofira.services.EjerciciosService;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.gestioneventos.cofira.api.EjerciciosControllerApi;
+import com.gestioneventos.cofira.dto.ejercicios.CrearEjerciciosDTO;
+import com.gestioneventos.cofira.dto.ejercicios.EjerciciosDTO;
+import com.gestioneventos.cofira.dto.ejercicios.ModificarEjerciciosDTO;
+import com.gestioneventos.cofira.services.EjerciciosService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/ejercicios")
-public class EjerciciosController {
+public class EjerciciosController implements EjerciciosControllerApi {
 
     private final EjerciciosService ejerciciosService;
 
-    @Autowired
     public EjerciciosController(EjerciciosService ejerciciosService) {
         this.ejerciciosService = ejerciciosService;
     }
 
     @GetMapping
-    public ResponseEntity<List<Ejercicios>> listarEjercicios() {
-        List<Ejercicios> ejercicios = ejerciciosService.listarEjercicios();
+    public ResponseEntity<List<EjerciciosDTO>> listarEjercicios() {
+        List<EjerciciosDTO> ejercicios = ejerciciosService.listarEjercicios();
         return ResponseEntity.ok(ejercicios);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Ejercicios> obtenerEjercicio(@PathVariable Long id) {
-        Ejercicios ejercicio = ejerciciosService.obtenerEjercicio(id);
+    public ResponseEntity<EjerciciosDTO> obtenerEjercicio(@PathVariable Long id) {
+        EjerciciosDTO ejercicio = ejerciciosService.obtenerEjercicio(id);
         return ResponseEntity.ok(ejercicio);
     }
 
     @GetMapping("/sala/{salaId}")
-    public ResponseEntity<List<Ejercicios>> obtenerEjerciciosPorSala(@PathVariable Long salaId) {
-        List<Ejercicios> ejercicios = ejerciciosService.obtenerEjerciciosPorSala(salaId);
+    public ResponseEntity<List<EjerciciosDTO>> obtenerEjerciciosPorSala(@PathVariable Long salaId) {
+        List<EjerciciosDTO> ejercicios = ejerciciosService.obtenerEjerciciosPorSala(salaId);
         return ResponseEntity.ok(ejercicios);
     }
 
     @PostMapping
-    public ResponseEntity<Ejercicios> crearEjercicio(@RequestBody @Valid Ejercicios ejercicio) {
-        Ejercicios nuevoEjercicio = ejerciciosService.crearEjercicio(ejercicio);
-        return ResponseEntity.ok(nuevoEjercicio);
+    public ResponseEntity<EjerciciosDTO> crearEjercicio(@RequestBody @Valid CrearEjerciciosDTO dto) {
+        EjerciciosDTO nuevoEjercicio = ejerciciosService.crearEjercicio(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nuevoEjercicio);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Ejercicios> actualizarEjercicio(@PathVariable Long id,
-                                                           @RequestBody Ejercicios ejercicio) {
-        Ejercicios ejercicioActualizado = ejerciciosService.actualizarEjercicio(id, ejercicio);
+    public ResponseEntity<EjerciciosDTO> actualizarEjercicio(@PathVariable Long id,
+                                                             @RequestBody @Valid ModificarEjerciciosDTO dto) {
+        EjerciciosDTO ejercicioActualizado = ejerciciosService.actualizarEjercicio(id, dto);
         return ResponseEntity.ok(ejercicioActualizado);
     }
 

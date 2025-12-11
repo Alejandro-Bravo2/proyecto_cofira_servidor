@@ -1,5 +1,6 @@
 package com.gestioneventos.cofira.controllers;
 
+import com.gestioneventos.cofira.api.AuthControllerApi;
 import com.gestioneventos.cofira.dto.auth.AuthResponseDTO;
 import com.gestioneventos.cofira.dto.auth.LoginRequestDTO;
 import com.gestioneventos.cofira.dto.auth.RegisterRequestDTO;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-public class AuthController {
+public class AuthController implements AuthControllerApi {
 
     @Autowired
     private AuthService authService;

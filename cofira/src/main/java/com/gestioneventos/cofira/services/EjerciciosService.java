@@ -1,10 +1,16 @@
 package com.gestioneventos.cofira.services;
 
-import com.gestioneventos.cofira.entities.Ejercicios;
-import com.gestioneventos.cofira.repositories.EjerciciosRepository;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.gestioneventos.cofira.dto.ejercicios.CrearEjerciciosDTO;
+import com.gestioneventos.cofira.dto.ejercicios.EjerciciosDTO;
+import com.gestioneventos.cofira.dto.ejercicios.ModificarEjerciciosDTO;
+import com.gestioneventos.cofira.entities.Ejercicios;
+import com.gestioneventos.cofira.exceptions.RecursoNoEncontradoException;
+import com.gestioneventos.cofira.repositories.EjerciciosRepository;
 
 @Service
 public class EjerciciosService {
@@ -16,43 +22,73 @@ public class EjerciciosService {
         this.ejerciciosRepository = ejerciciosRepository;
     }
 
-    public List<Ejercicios> listarEjercicios() {
-        return ejerciciosRepository.findAll();
+    public List<EjerciciosDTO> listarEjercicios() {
+        return ejerciciosRepository.findAll().stream()
+                .map(this::convertirADTO)
+                .collect(Collectors.toList());
     }
 
-    public Ejercicios obtenerEjercicio(Long id) {
-        return ejerciciosRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(EJERCICIO_NO_ENCONTRADO + id));
-    }
-
-    public List<Ejercicios> obtenerEjerciciosPorSala(Long salaId) {
-        return ejerciciosRepository.findBySalaDeGimnasioId(salaId);
-    }
-
-    public Ejercicios crearEjercicio(Ejercicios ejercicio) {
-        return ejerciciosRepository.save(ejercicio);
-    }
-
-    public Ejercicios actualizarEjercicio(Long id, Ejercicios ejercicioActualizado) {
+    public EjerciciosDTO obtenerEjercicio(Long id) {
         Ejercicios ejercicio = ejerciciosRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(EJERCICIO_NO_ENCONTRADO + id));
+                .orElseThrow(() -> new RecursoNoEncontradoException(EJERCICIO_NO_ENCONTRADO + id));
+        return convertirADTO(ejercicio);
+    }
 
-        if (ejercicioActualizado.getNombreEjercicio() != null) {
-            ejercicio.setNombreEjercicio(ejercicioActualizado.getNombreEjercicio());
+    public EjerciciosDTO crearEjercicio(CrearEjerciciosDTO dto) {
+        Ejercicios ejercicio = new Ejercicios();
+        ejercicio.setNombreEjercicio(dto.getNombreEjercicio());
+        ejercicio.setSeries(dto.getSeries());
+        ejercicio.setRepeticiones(dto.getRepeticiones());
+        ejercicio.setTiempoDescansoSegundos(dto.getTiempoDescansoSegundos());
+        ejercicio.setDescripcion(dto.getDescripcion());
+        ejercicio.setGrupoMuscular(dto.getGrupoMuscular());
+
+        Ejercicios ejercicioGuardado = ejerciciosRepository.save(ejercicio);
+        return convertirADTO(ejercicioGuardado);
+    }
+
+    public EjerciciosDTO actualizarEjercicio(Long id, ModificarEjerciciosDTO dto) {
+        Ejercicios ejercicio = ejerciciosRepository.findById(id)
+                .orElseThrow(() -> new RecursoNoEncontradoException(EJERCICIO_NO_ENCONTRADO + id));
+
+        if (dto.getNombreEjercicio() != null) {
+            ejercicio.setNombreEjercicio(dto.getNombreEjercicio());
         }
-        if (ejercicioActualizado.getSeries() != null) {
-            ejercicio.setSeries(ejercicioActualizado.getSeries());
+        if (dto.getSeries() != null) {
+            ejercicio.setSeries(dto.getSeries());
         }
-        if (ejercicioActualizado.getRepeticiones() != null) {
-            ejercicio.setRepeticiones(ejercicioActualizado.getRepeticiones());
+        if (dto.getRepeticiones() != null) {
+            ejercicio.setRepeticiones(dto.getRepeticiones());
+        }
+        if (dto.getTiempoDescansoSegundos() != null) {
+            ejercicio.setTiempoDescansoSegundos(dto.getTiempoDescansoSegundos());
+        }
+        if (dto.getDescripcion() != null) {
+            ejercicio.setDescripcion(dto.getDescripcion());
+        }
+        if (dto.getGrupoMuscular() != null) {
+            ejercicio.setGrupoMuscular(dto.getGrupoMuscular());
         }
 
-        return ejerciciosRepository.save(ejercicio);
+        Ejercicios ejercicioActualizado = ejerciciosRepository.save(ejercicio);
+        return convertirADTO(ejercicioActualizado);
     }
 
     public void eliminarEjercicio(Long id) {
         Ejercicios ejercicio = ejerciciosRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(EJERCICIO_NO_ENCONTRADO + id));
+                .orElseThrow(() -> new RecursoNoEncontradoException(EJERCICIO_NO_ENCONTRADO + id));
         ejerciciosRepository.delete(ejercicio);
+    }
+
+    private EjerciciosDTO convertirADTO(Ejercicios ejercicio) {
+        EjerciciosDTO dto = new EjerciciosDTO();
+        dto.setId(ejercicio.getId());
+        dto.setNombreEjercicio(ejercicio.getNombreEjercicio());
+        dto.setSeries(ejercicio.getSeries());
+        dto.setRepeticiones(ejercicio.getRepeticiones());
+        dto.setTiempoDescansoSegundos(ejercicio.getTiempoDescansoSegundos());
+        dto.setDescripcion(ejercicio.getDescripcion());
+        dto.setGrupoMuscular(ejercicio.getGrupoMuscular());
+        return dto;
     }
 }

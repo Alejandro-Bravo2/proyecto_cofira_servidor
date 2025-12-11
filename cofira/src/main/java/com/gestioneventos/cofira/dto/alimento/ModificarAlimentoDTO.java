@@ -6,6 +6,6 @@ import java.util.List;
 
 @Data
 public class ModificarAlimentoDTO {
-    private List<String> alimentosFavoritos;
-    private List<String> listaAlergias;
+    private String nombre;
+    private List<String> ingredientes;
 }

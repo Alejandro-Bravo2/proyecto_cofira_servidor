@@ -1,5 +1,7 @@
 package com.gestioneventos.cofira.dto.usuario;
 
+import java.util.List;
+
 import jakarta.validation.constraints.Email;
 import lombok.Data;
 
@@ -14,4 +16,6 @@ public class ModificarUsuarioDTO {
     private Integer edad;
     private Double peso;
     private Double altura;
+    private List<String> alimentosFavoritos;
+    private List<String> alergias;
 }

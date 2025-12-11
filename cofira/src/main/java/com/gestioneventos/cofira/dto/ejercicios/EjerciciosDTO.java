@@ -8,5 +8,7 @@ public class EjerciciosDTO {
     private String nombreEjercicio;
     private Integer series;
     private Integer repeticiones;
-    private Long salaDeGimnasioId;
+    private Integer tiempoDescansoSegundos;
+    private String descripcion;
+    private String grupoMuscular;
 }

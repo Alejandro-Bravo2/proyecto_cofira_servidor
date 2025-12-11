@@ -7,6 +7,6 @@ import java.util.List;
 @Data
 public class AlimentoDTO {
     private Long id;
-    private List<String> alimentosFavoritos;
-    private List<String> listaAlergias;
+    private String nombre;
+    private List<String> ingredientes;
 }

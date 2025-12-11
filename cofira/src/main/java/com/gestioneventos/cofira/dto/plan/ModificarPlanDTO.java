@@ -6,4 +6,5 @@ import lombok.Data;
 public class ModificarPlanDTO {
     private Double precio;
     private Boolean subscripcionActiva;
+    private Long usuarioId;
 }

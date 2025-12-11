@@ -7,4 +7,7 @@ public class ModificarEjerciciosDTO {
     private String nombreEjercicio;
     private Integer series;
     private Integer repeticiones;
+    private Integer tiempoDescansoSegundos;
+    private String descripcion;
+    private String grupoMuscular;
 }

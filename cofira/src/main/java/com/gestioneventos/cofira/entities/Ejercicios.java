@@ -1,6 +1,5 @@
 package com.gestioneventos.cofira.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -19,18 +18,25 @@ public class Ejercicios {
     private Long id;
 
     @NotNull
+    @Column(nullable = false)
+    private String nombreEjercicio;
+
+    @NotNull
+    @Column(nullable = false)
     private Integer series;
 
     @NotNull
+    @Column(nullable = false)
     private Integer repeticiones;
 
-    @NotNull
-    private String nombreEjercicio;
+    @Column
+    private Integer tiempoDescansoSegundos;
 
-    @ManyToOne
-    @JoinColumn(name = "sala_gimnasio_id")
-    @JsonBackReference
-    private SalaDeGimnasio salaDeGimnasio;
+    @Column
+    private String descripcion;
+
+    @Column
+    private String grupoMuscular;
 
     @Override
     public boolean equals(Object o) {

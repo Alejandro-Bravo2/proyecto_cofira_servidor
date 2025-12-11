@@ -1,5 +1,7 @@
 package com.gestioneventos.cofira.dto.usuario;
 
+import java.util.List;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -23,4 +25,6 @@ public class CrearUsuarioDTO {
     private Integer edad;
     private Double peso;
     private Double altura;
+    private List<String> alimentosFavoritos;
+    private List<String> alergias;
 }
