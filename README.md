@@ -1025,25 +1025,6 @@ Ejecutar con perfil dev:
 openssl rand -hex 64
 ```
 
----
-
-## 🤝 Contribución
-
-Para contribuir al proyecto:
-
-1. Fork el repositorio
-2. Crea una rama con tu feature: `git checkout -b feature/nueva-funcionalidad`
-3. Commit tus cambios: `git commit -m 'Add: nueva funcionalidad'`
-4. Push a la rama: `git push origin feature/nueva-funcionalidad`
-5. Abre un Pull Request
-
----
-
-## 📄 Licencia
-
-Este proyecto es parte de un trabajo académico para la asignatura de Desarrollo Web.
-
----
 
 ## 👤 Autor
 
