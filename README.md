@@ -806,66 +806,19 @@ Se incluye una colección completa en `postman/Cofira_API_Collection.json` con:
 
 #### 1. Login Exitoso
 
-![alt text](image.png)
+![alt text](./assets/image.png)
 
 #### 2. Usuario Actual (`/auth/me`)
 
-![alt text](image-1.png)
+![alt text](./assets/image-1.png)
 
 #### 3. Crear Ejercicios como ADMIN
 
-![alt text](image-2.png)
+![alt text](./assets/image-2.png)
 
-#### 4. Error 403 - USER intenta crear ejercicio (solo ADMIN)
+#### 4. Crear Rutina de ejercicio como ADMIN
 
-![403 Forbidden](docs/screenshots/04_403_forbidden.png)
-
-#### 5. CRUD de Rutinas con Token
-
-![CRUD Rutinas](docs/screenshots/05_crud_rutinas.png)
-
-#### 6. Logout y Token Revocado
-
-![Logout](docs/screenshots/06_logout.png)
-
-### Casos de Prueba
-
-```bash
-# 1. Registrar usuario USER
-POST /auth/register
-Body: { username: "user1", password: "pass123", rol: "USER" }
-Expected: 201 Created + token
-
-# 2. Login con credenciales válidas
-POST /auth/login
-Body: { username: "user1", password: "pass123" }
-Expected: 200 OK + token JWT
-
-# 3. Acceder a /auth/me con token
-GET /auth/me
-Headers: Authorization: Bearer <token>
-Expected: 200 OK + datos del usuario
-
-# 4. USER intenta crear ejercicio (solo ADMIN)
-POST /api/ejercicios
-Headers: Authorization: Bearer <token-user>
-Expected: 403 Forbidden
-
-# 5. ADMIN crea ejercicio exitosamente
-POST /api/ejercicios
-Headers: Authorization: Bearer <token-admin>
-Expected: 201 Created
-
-# 6. Logout invalida el token
-POST /auth/logout
-Headers: Authorization: Bearer <token>
-Expected: 200 OK
-
-# 7. Usar token revocado falla
-GET /auth/me
-Headers: Authorization: Bearer <token-revocado>
-Expected: 401 Unauthorized
-```
+![alt text](./assets/image-3.png)
 
 ---
 

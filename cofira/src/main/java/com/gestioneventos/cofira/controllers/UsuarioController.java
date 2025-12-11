@@ -35,7 +35,9 @@ public class UsuarioController implements UsuarioControllerApi {
     @GetMapping
     public ResponseEntity<Page<UsuarioListadoDTO>> listarUsuarios(@RequestParam(required = false) String nombre,
                                                                    Pageable pageable) {
-        Page<UsuarioListadoDTO> usuarios = usuarioService.listarUsuarios(nombre, pageable);
+        // Si el nombre es vacío o solo espacios, tratarlo como null
+        String nombreFiltro = (nombre != null && !nombre.trim().isEmpty()) ? nombre : null;
+        Page<UsuarioListadoDTO> usuarios = usuarioService.listarUsuarios(nombreFiltro, pageable);
         return ResponseEntity.ok(usuarios);
     }
 

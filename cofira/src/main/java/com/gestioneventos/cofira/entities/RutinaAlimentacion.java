@@ -1,5 +1,6 @@
 package com.gestioneventos.cofira.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +14,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class RutinaAlimentacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
