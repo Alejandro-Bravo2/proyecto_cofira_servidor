@@ -984,7 +984,6 @@ openssl rand -hex 64
 **Alejandro Bravo Calderón**
 
 - GitHub: [@Alejandro-Bravo2](https://github.com/Alejandro-Bravo2)
-- Email: [alejandro@example.com](mailto:alejandro@example.com)
 
 ---
 
