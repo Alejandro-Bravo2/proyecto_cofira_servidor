@@ -21,6 +21,7 @@ import com.gestioneventos.cofira.dto.usuario.UsuarioListadoDTO;
 import com.gestioneventos.cofira.services.UsuarioService;
 
 import jakarta.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -33,6 +34,7 @@ public class UsuarioController implements UsuarioControllerApi {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Page<UsuarioListadoDTO>> listarUsuarios(@RequestParam(required = false) String nombre,
                                                                    Pageable pageable) {
         // Si el nombre es vacío o solo espacios, tratarlo como null
@@ -42,6 +44,7 @@ public class UsuarioController implements UsuarioControllerApi {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<UsuarioDetalleDTO> obtenerUsuario(@PathVariable Long id) {
         UsuarioDetalleDTO usuario = usuarioService.obtenerUsuario(id);
         return ResponseEntity.ok(usuario);
@@ -53,13 +56,21 @@ public class UsuarioController implements UsuarioControllerApi {
         return ResponseEntity.ok(usuario);
     }
 
+    @GetMapping("/username")
+    public ResponseEntity<UsuarioDetalleDTO> obtenerUsuarioPorUsername(@RequestParam("username") String username) {
+        UsuarioDetalleDTO usuario = usuarioService.obtenerUsuarioByUsername(username);
+        return ResponseEntity.ok(usuario);
+    }
+
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<UsuarioDetalleDTO> crearUsuario(@RequestBody @Valid CrearUsuarioDTO crearUsuarioDTO) {
         UsuarioDetalleDTO nuevoUsuario = usuarioService.crearUsuario(crearUsuarioDTO);
         return ResponseEntity.ok(nuevoUsuario);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<UsuarioDetalleDTO> actualizarUsuario(@PathVariable Long id,
                                                                 @RequestBody @Valid ModificarUsuarioDTO modificarUsuarioDTO) {
         UsuarioDetalleDTO usuarioActualizado = usuarioService.actualizarUsuario(id, modificarUsuarioDTO);
@@ -67,6 +78,7 @@ public class UsuarioController implements UsuarioControllerApi {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> eliminarUsuario(@PathVariable Long id) {
         usuarioService.eliminarUsuario(id);
         return ResponseEntity.noContent().build();
