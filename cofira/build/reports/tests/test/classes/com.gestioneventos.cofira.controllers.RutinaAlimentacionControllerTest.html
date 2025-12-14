@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.297s</div>
+<div class="counter">0.052s</div>
 <p>duration</p>
 </div>
 </td>
@@ -81,55 +81,55 @@
 <tr>
 <td class="success">POST /api/rutinas-alimentacion - ADMIN puede crear rutina</td>
 <td class="success">crearRutina_ComoAdmin_Retorna201()</td>
-<td class="success">0.064s</td>
+<td class="success">0.009s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">POST /api/rutinas-alimentacion - Crear rutina con datos inválidos retorna 400</td>
 <td class="success">crearRutina_DatosInvalidos_Retorna400()</td>
-<td class="success">0.017s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">POST /api/rutinas-alimentacion - Crear rutina con datos válidos</td>
 <td class="success">crearRutina_DatosValidos_Retorna201()</td>
-<td class="success">0.008s</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">DELETE /api/rutinas-alimentacion/{id} - Eliminar rutina existente</td>
 <td class="success">eliminarRutina_Existente_Retorna204()</td>
-<td class="success">0.147s</td>
+<td class="success">0.013s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">DELETE /api/rutinas-alimentacion/{id} - Eliminar rutina inexistente retorna 404</td>
 <td class="success">eliminarRutina_Inexistente_Retorna404()</td>
-<td class="success">0.014s</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">GET /api/rutinas-alimentacion - Usuario autenticado puede listar rutinas</td>
 <td class="success">listarRutinas_Autenticado_RetornaOk()</td>
-<td class="success">0.012s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">GET /api/rutinas-alimentacion - Listar rutinas vacías</td>
 <td class="success">listarRutinas_ListaVacia_RetornaOk()</td>
-<td class="success">0.011s</td>
+<td class="success">0.007s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">GET /api/rutinas-alimentacion/{id} - Obtener rutina existente</td>
 <td class="success">obtenerRutina_Existente_RetornaOk()</td>
-<td class="success">0.008s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">GET /api/rutinas-alimentacion/{id} - Obtener rutina inexistente retorna 404</td>
 <td class="success">obtenerRutina_Inexistente_Retorna404()</td>
-<td class="success">0.016s</td>
+<td class="success">0.006s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -137,8 +137,8 @@
 <div class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre id="class-stdout">21:11:11.867 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.gestioneventos.cofira.controllers.RutinaAlimentacionControllerTest]: RutinaAlimentacionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-21:11:12.102 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.gestioneventos.cofira.CofiraApplication for test class com.gestioneventos.cofira.controllers.RutinaAlimentacionControllerTest
+<pre id="class-stdout">2025-12-14T22:53:18.927+01:00  INFO 61814 --- [Cofira] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.gestioneventos.cofira.controllers.RutinaAlimentacionControllerTest]: RutinaAlimentacionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-12-14T22:53:18.928+01:00  INFO 61814 --- [Cofira] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.gestioneventos.cofira.CofiraApplication for test class com.gestioneventos.cofira.controllers.RutinaAlimentacionControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -149,41 +149,39 @@
 
  :: Spring Boot ::                (v3.4.0)
 
-2025-12-14T21:11:12.548+01:00  INFO 22185 --- [Cofira] [    Test worker] c.g.c.c.RutinaAlimentacionControllerTest : Starting RutinaAlimentacionControllerTest using Java 17.0.17 with PID 22185 (started by alejandrobravocalderon in /Users/alejandrobravocalderon/Documents/repositorios/proyecto_cofira_servidor/cofira)
-2025-12-14T21:11:12.549+01:00  INFO 22185 --- [Cofira] [    Test worker] c.g.c.c.RutinaAlimentacionControllerTest : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2025-12-14T21:11:13.343+01:00  INFO 22185 --- [Cofira] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-12-14T21:11:13.383+01:00  INFO 22185 --- [Cofira] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 11 JPA repository interfaces.
-2025-12-14T21:11:14.280+01:00  INFO 22185 --- [Cofira] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-12-14T21:11:14.477+01:00  INFO 22185 --- [Cofira] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7ee3a2ed
-2025-12-14T21:11:14.478+01:00  INFO 22185 --- [Cofira] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-12-14T21:11:14.493+01:00  INFO 22185 --- [Cofira] [    Test worker] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/cofira (PostgreSQL 16.11)
-2025-12-14T21:11:14.536+01:00  INFO 22185 --- [Cofira] [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.020s)
-2025-12-14T21:11:14.575+01:00  INFO 22185 --- [Cofira] [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema &quot;public&quot;: 1
-2025-12-14T21:11:14.578+01:00  INFO 22185 --- [Cofira] [    Test worker] o.f.core.internal.command.DbMigrate      : Schema &quot;public&quot; is up to date. No migration necessary.
-2025-12-14T21:11:14.673+01:00  INFO 22185 --- [Cofira] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-12-14T21:11:14.713+01:00  INFO 22185 --- [Cofira] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
-2025-12-14T21:11:14.742+01:00  INFO 22185 --- [Cofira] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-12-14T21:11:14.812+01:00  INFO 22185 --- [Cofira] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-12-14T21:11:14.849+01:00  WARN 22185 --- [Cofira] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-14T21:11:14.857+01:00  INFO 22185 --- [Cofira] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+2025-12-14T22:53:18.934+01:00  INFO 61814 --- [Cofira] [    Test worker] c.g.c.c.RutinaAlimentacionControllerTest : Starting RutinaAlimentacionControllerTest using Java 17.0.17 with PID 61814 (started by alejandrobravocalderon in /Users/alejandrobravocalderon/Documents/repositorios/proyecto_cofira_servidor/cofira)
+2025-12-14T22:53:18.934+01:00  INFO 61814 --- [Cofira] [    Test worker] c.g.c.c.RutinaAlimentacionControllerTest : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2025-12-14T22:53:19.016+01:00  INFO 61814 --- [Cofira] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-14T22:53:19.024+01:00  INFO 61814 --- [Cofira] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 11 JPA repository interfaces.
+2025-12-14T22:53:19.081+01:00  INFO 61814 --- [Cofira] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2025-12-14T22:53:19.094+01:00  INFO 61814 --- [Cofira] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@e129407
+2025-12-14T22:53:19.094+01:00  INFO 61814 --- [Cofira] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2025-12-14T22:53:19.095+01:00  INFO 61814 --- [Cofira] [    Test worker] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/cofira (PostgreSQL 16.11)
+2025-12-14T22:53:19.105+01:00  INFO 61814 --- [Cofira] [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.003s)
+2025-12-14T22:53:19.120+01:00  INFO 61814 --- [Cofira] [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema &quot;public&quot;: 1
+2025-12-14T22:53:19.120+01:00  INFO 61814 --- [Cofira] [    Test worker] o.f.core.internal.command.DbMigrate      : Schema &quot;public&quot; is up to date. No migration necessary.
+2025-12-14T22:53:19.132+01:00  INFO 61814 --- [Cofira] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-14T22:53:19.133+01:00  INFO 61814 --- [Cofira] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-14T22:53:19.135+01:00  INFO 61814 --- [Cofira] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-14T22:53:19.137+01:00  WARN 61814 --- [Cofira] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-14T22:53:19.138+01:00  INFO 61814 --- [Cofira] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
 	Database driver: undefined/unknown
 	Database version: 16.11
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-12-14T21:11:15.447+01:00  INFO 22185 --- [Cofira] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-14T21:11:15.476+01:00  INFO 22185 --- [Cofira] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-12-14T21:11:15.672+01:00  INFO 22185 --- [Cofira] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-12-14T21:11:15.910+01:00  INFO 22185 --- [Cofira] [    Test worker] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2025-12-14T21:11:15.911+01:00  WARN 22185 --- [Cofira] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-12-14T21:11:16.105+01:00  WARN 22185 --- [Cofira] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-12-14T21:11:16.434+01:00  INFO 22185 --- [Cofira] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoints beneath base path '/actuator'
-2025-12-14T21:11:16.856+01:00  INFO 22185 --- [Cofira] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-12-14T21:11:16.856+01:00  INFO 22185 --- [Cofira] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-12-14T21:11:16.858+01:00  INFO 22185 --- [Cofira] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2025-12-14T21:11:16.905+01:00  INFO 22185 --- [Cofira] [    Test worker] c.g.c.c.RutinaAlimentacionControllerTest : Started RutinaAlimentacionControllerTest in 4.562 seconds (process running for 6.028)
+2025-12-14T22:53:19.190+01:00  INFO 61814 --- [Cofira] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-14T22:53:19.208+01:00  INFO 61814 --- [Cofira] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-14T22:53:19.321+01:00  INFO 61814 --- [Cofira] [    Test worker] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-14T22:53:19.321+01:00  WARN 61814 --- [Cofira] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-12-14T22:53:19.430+01:00  WARN 61814 --- [Cofira] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-14T22:53:19.591+01:00  INFO 61814 --- [Cofira] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoints beneath base path '/actuator'
+2025-12-14T22:53:19.807+01:00  INFO 61814 --- [Cofira] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-12-14T22:53:19.807+01:00  INFO 61814 --- [Cofira] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-12-14T22:53:19.807+01:00  INFO 61814 --- [Cofira] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-12-14T22:53:19.824+01:00  INFO 61814 --- [Cofira] [    Test worker] c.g.c.c.RutinaAlimentacionControllerTest : Started RutinaAlimentacionControllerTest in 0.895 seconds (process running for 6.675)
 </pre>
 <button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="class-stdout">Copy</button>
 </span>
@@ -196,7 +194,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 9.2.1</a> at 14 dic 2025, 21:11:17</p>
+<a href="https://www.gradle.org">Gradle 9.2.1</a> at 14 dic 2025, 22:53:21</p>
 </div>
 </div>
 </body>

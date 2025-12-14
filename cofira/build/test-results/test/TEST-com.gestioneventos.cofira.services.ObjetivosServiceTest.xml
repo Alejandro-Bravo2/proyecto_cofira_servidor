@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gestioneventos.cofira.services.ObjetivosServiceTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2025-12-14T21:53:21.402Z" hostname="MacBook-Pro-de-Alejandro-2.local" time="0.029">
+  <properties/>
+  <testcase name="testActualizarObjetivos_PartialUpdate()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.023"/>
+  <testcase name="testEliminarObjetivos_Success()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.001"/>
+  <testcase name="testActualizarObjetivos_NotFound()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.0"/>
+  <testcase name="testEliminarObjetivos_NotFound()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.001"/>
+  <testcase name="testObtenerObjetivosPorUsuario_Success()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.0"/>
+  <testcase name="testCrearObjetivos_Success()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.001"/>
+  <testcase name="testObtenerObjetivosPorUsuario_NotFound()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.0"/>
+  <testcase name="testListarObjetivos_NotEmpty()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.001"/>
+  <testcase name="testActualizarObjetivos_Success()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.0"/>
+  <testcase name="testObtenerObjetivos_Success()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.0"/>
+  <testcase name="testCrearObjetivos_UsuarioNotFound()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.001"/>
+  <testcase name="testListarObjetivos_Empty()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.0"/>
+  <testcase name="testObtenerObjetivos_NotFound()" classname="com.gestioneventos.cofira.services.ObjetivosServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

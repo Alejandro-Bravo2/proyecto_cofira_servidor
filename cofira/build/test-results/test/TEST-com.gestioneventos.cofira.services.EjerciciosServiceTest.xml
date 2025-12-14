@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gestioneventos.cofira.services.EjerciciosServiceTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-12-14T21:53:21.397Z" hostname="MacBook-Pro-de-Alejandro-2.local" time="0.005">
+  <properties/>
+  <testcase name="testObtenerEjercicio_NotFound()" classname="com.gestioneventos.cofira.services.EjerciciosServiceTest" time="0.001"/>
+  <testcase name="testCrearEjercicio_Success()" classname="com.gestioneventos.cofira.services.EjerciciosServiceTest" time="0.0"/>
+  <testcase name="testListarEjercicios_Empty()" classname="com.gestioneventos.cofira.services.EjerciciosServiceTest" time="0.0"/>
+  <testcase name="testListarEjercicios_NotEmpty()" classname="com.gestioneventos.cofira.services.EjerciciosServiceTest" time="0.001"/>
+  <testcase name="testActualizarEjercicio_Success()" classname="com.gestioneventos.cofira.services.EjerciciosServiceTest" time="0.0"/>
+  <testcase name="testActualizarEjercicio_NotFound()" classname="com.gestioneventos.cofira.services.EjerciciosServiceTest" time="0.001"/>
+  <testcase name="testEliminarEjercicio_NotFound()" classname="com.gestioneventos.cofira.services.EjerciciosServiceTest" time="0.0"/>
+  <testcase name="testObtenerEjercicio_Success()" classname="com.gestioneventos.cofira.services.EjerciciosServiceTest" time="0.0"/>
+  <testcase name="testActualizarEjercicio_PartialUpdate()" classname="com.gestioneventos.cofira.services.EjerciciosServiceTest" time="0.0"/>
+  <testcase name="testEliminarEjercicio_Success()" classname="com.gestioneventos.cofira.services.EjerciciosServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

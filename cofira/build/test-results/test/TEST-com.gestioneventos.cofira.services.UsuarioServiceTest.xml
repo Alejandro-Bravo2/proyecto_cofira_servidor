@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gestioneventos.cofira.services.UsuarioServiceTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2025-12-14T21:53:21.490Z" hostname="MacBook-Pro-de-Alejandro-2.local" time="0.013">
+  <properties/>
+  <testcase name="testObtenerUsuarioPorId_NotFound()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.001"/>
+  <testcase name="testCrearUsuario_DuplicateEmail()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.001"/>
+  <testcase name="testListarUsuarios_WithNameFilter()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.002"/>
+  <testcase name="testActualizarUsuario_PartialUpdate()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.0"/>
+  <testcase name="testObtenerUsuariosPorRangoEdad_Found()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.001"/>
+  <testcase name="testEliminarUsuario_NotFound()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.0"/>
+  <testcase name="testObtenerUsuariosConPlanActivo_Found()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.001"/>
+  <testcase name="testObtenerUsuariosPorRangoEdad_NotFound()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.0"/>
+  <testcase name="testActualizarUsuario_NotFound()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.0"/>
+  <testcase name="testCrearUsuario_Success()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.001"/>
+  <testcase name="testObtenerUsuarioPorId_Success()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.0"/>
+  <testcase name="testActualizarUsuario_FullUpdateSuccess()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.001"/>
+  <testcase name="testObtenerUsuarioByEmail_Success()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.0"/>
+  <testcase name="testListarUsuarios_NoFilter()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.001"/>
+  <testcase name="testObtenerUsuarioByUsername_NotFound()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.0"/>
+  <testcase name="testEliminarUsuario_Success()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.001"/>
+  <testcase name="testObtenerUsuarioByUsername_Success()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.0"/>
+  <testcase name="testListarUsuarios_Empty()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.0"/>
+  <testcase name="testObtenerUsuarioByEmail_NotFound()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.001"/>
+  <testcase name="testObtenerUsuario_NotFound()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.0"/>
+  <testcase name="testObtenerUsuariosConPlanActivo_NotFound()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.001"/>
+  <testcase name="testCrearUsuario_DuplicateUsername()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.0"/>
+  <testcase name="testObtenerUsuario_Success()" classname="com.gestioneventos.cofira.services.UsuarioServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

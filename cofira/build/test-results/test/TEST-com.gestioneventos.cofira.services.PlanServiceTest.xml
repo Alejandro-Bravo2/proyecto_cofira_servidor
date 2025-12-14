@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gestioneventos.cofira.services.PlanServiceTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2025-12-14T21:53:21.431Z" hostname="MacBook-Pro-de-Alejandro-2.local" time="0.031">
+  <properties/>
+  <testcase name="testActualizarPlan_NonExistentUserForUpdate()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.025"/>
+  <testcase name="testEliminarPlan_Success()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.0"/>
+  <testcase name="testListarPlanes_NotEmpty()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.001"/>
+  <testcase name="testEliminarPlan_NotFound()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.0"/>
+  <testcase name="testActualizarPlan_PartialUpdateSubscriptionStatus()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.001"/>
+  <testcase name="testObtenerPlanPorUsuario_Success()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.0"/>
+  <testcase name="testObtenerPlan_NotFound()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.0"/>
+  <testcase name="testActualizarPlan_PartialUpdatePrice()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.0"/>
+  <testcase name="testObtenerPlanPorUsuario_NotFound()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.0"/>
+  <testcase name="testListarPlanes_Empty()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.001"/>
+  <testcase name="testCrearPlan_Success()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.0"/>
+  <testcase name="testCrearPlan_UsuarioNotFound()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.001"/>
+  <testcase name="testActualizarPlan_NonExistentPlan()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.0"/>
+  <testcase name="testActualizarPlan_FullUpdateSuccess()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.0"/>
+  <testcase name="testObtenerPlan_Success()" classname="com.gestioneventos.cofira.services.PlanServiceTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

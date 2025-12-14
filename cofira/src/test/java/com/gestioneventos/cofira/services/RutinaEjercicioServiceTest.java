@@ -175,7 +175,7 @@ public class RutinaEjercicioServiceTest {
         assertEquals(2, result.getDiasEjercicio().get(0).getEjercicios().size());
         assertEquals("MARTES", result.getDiasEjercicio().get(1).getDiaSemana());
         assertEquals(1, result.getDiasEjercicio().get(1).getEjercicios().size());
-        verify(ejerciciosRepository, times(2)).findById(anyLong()); // 1L and 2L for Monday, 1L for Tuesday
+        verify(ejerciciosRepository, times(3)).findById(anyLong()); // 1L and 2L for Monday, 1L for Tuesday
         verify(rutinaEjercicioRepository, times(1)).save(any(RutinaEjercicio.class));
     }
 

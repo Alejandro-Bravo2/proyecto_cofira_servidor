@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gestioneventos.cofira.services.RutinaEjercicioServiceTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-12-14T21:53:13.583Z" hostname="MacBook-Pro-de-Alejandro-2.local" time="0.516">
+  <properties/>
+  <testcase name="testEliminarRutina_NotFound()" classname="com.gestioneventos.cofira.services.RutinaEjercicioServiceTest" time="0.503"/>
+  <testcase name="testListarRutinas_NotEmpty()" classname="com.gestioneventos.cofira.services.RutinaEjercicioServiceTest" time="0.002"/>
+  <testcase name="testListarRutinas_Empty()" classname="com.gestioneventos.cofira.services.RutinaEjercicioServiceTest" time="0.001"/>
+  <testcase name="testObtenerRutina_Success()" classname="com.gestioneventos.cofira.services.RutinaEjercicioServiceTest" time="0.001"/>
+  <testcase name="testObtenerRutina_NotFound()" classname="com.gestioneventos.cofira.services.RutinaEjercicioServiceTest" time="0.001"/>
+  <testcase name="testCrearRutina_SuccessWithExercises()" classname="com.gestioneventos.cofira.services.RutinaEjercicioServiceTest" time="0.003"/>
+  <testcase name="testCrearRutina_ExerciseNotFound()" classname="com.gestioneventos.cofira.services.RutinaEjercicioServiceTest" time="0.001"/>
+  <testcase name="testEliminarRutina_Success()" classname="com.gestioneventos.cofira.services.RutinaEjercicioServiceTest" time="0.002"/>
+  <testcase name="testCrearRutina_EmptyExerciseListForDay()" classname="com.gestioneventos.cofira.services.RutinaEjercicioServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
