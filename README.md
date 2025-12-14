@@ -1154,7 +1154,6 @@ Este proyecto ha sido evaluado según la **Rúbrica DWES v1.2 - Proyecto Final**
 **Alejandro Bravo Calderón**
 
 - GitHub: [@Alejandro-Bravo2](https://github.com/Alejandro-Bravo2)
-- Email: [alejandro@example.com](mailto:alejandro@example.com)
 
 ---
 
