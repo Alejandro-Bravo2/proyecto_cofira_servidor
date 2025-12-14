@@ -34,7 +34,7 @@ public class AlimentoServiceTest {
         alimento = new Alimento();
         alimento.setId(1L);
         alimento.setNombre("Manzana");
-        alimento.setIngredientes("Manzana");
+        alimento.setIngredientes(Collections.singletonList("Manzana"));
     }
 
     @Test
