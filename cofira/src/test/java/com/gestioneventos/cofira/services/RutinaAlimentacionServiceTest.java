@@ -36,29 +36,18 @@ public class RutinaAlimentacionServiceTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
 
-        // Setup a sample Alimento for meals
-        Alimento manzana = new Alimento();
-        manzana.setId(1L);
-        manzana.setNombre("Manzana");
-        manzana.setIngredientes(Collections.singletonList("Manzana"));
-
-        Alimento pollo = new Alimento();
-        pollo.setId(2L);
-        pollo.setNombre("Pollo");
-        pollo.setIngredientes(Collections.singletonList("Pollo"));
-
         // Setup individual meal entities
         Desayuno desayuno = new Desayuno();
         desayuno.setId(10L);
-        desayuno.setAlimentos(Collections.singletonList(manzana));
+        desayuno.setAlimentos(Collections.singletonList("Manzana"));
 
         Almuerzo almuerzo = new Almuerzo();
         almuerzo.setId(20L);
-        almuerzo.setAlimentos(Collections.singletonList(pollo));
+        almuerzo.setAlimentos(Collections.singletonList("Pollo"));
 
         Comida comida = new Comida();
         comida.setId(30L);
-        comida.setAlimentos(Collections.singletonList(pollo));
+        comida.setAlimentos(Collections.singletonList("Pollo"));
 
         // Setup a DiaAlimentacion entity
         DiaAlimentacion diaLunes = new DiaAlimentacion();
@@ -161,9 +150,9 @@ public class RutinaAlimentacionServiceTest {
         savedLunes.setId(200L);
         savedLunes.setDiaSemana(DiaSemana.LUNES);
         Desayuno savedDesayuno = new Desayuno();
-        savedDesayuno.setAlimentos(Collections.singletonList(new Alimento(null, "Manzana", null)));
+        savedDesayuno.setAlimentos(Collections.singletonList("Manzana"));
         Almuerzo savedAlmuerzo = new Almuerzo();
-        savedAlmuerzo.setAlimentos(Collections.singletonList(new Alimento(null, "Pollo", null)));
+        savedAlmuerzo.setAlimentos(Collections.singletonList("Pollo"));
         savedLunes.setDesayuno(savedDesayuno);
         savedLunes.setAlmuerzo(savedAlmuerzo);
 
@@ -172,7 +161,7 @@ public class RutinaAlimentacionServiceTest {
         savedMartes.setId(201L);
         savedMartes.setDiaSemana(DiaSemana.MARTES);
         Desayuno savedMartesDesayuno = new Desayuno();
-        savedMartesDesayuno.setAlimentos(Collections.singletonList(new Alimento(null, "Pollo", null)));
+        savedMartesDesayuno.setAlimentos(Collections.singletonList("Pollo"));
         savedMartes.setDesayuno(savedMartesDesayuno);
 
         savedRutina.setDiasAlimentacion(Arrays.asList(savedLunes, savedMartes));
