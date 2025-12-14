@@ -120,10 +120,10 @@ public class RutinaAlimentacionServiceTest {
     @Test
     void testCrearRutina_SuccessWithMeals() {
         // Create DTOs for Alimento
-        ComidaDTO manzanaComidaDTO = new ComidaDTO();
+        CrearComidaDTO manzanaComidaDTO = new CrearComidaDTO();
         manzanaComidaDTO.setAlimentos(Collections.singletonList("Manzana"));
 
-        ComidaDTO polloComidaDTO = new ComidaDTO();
+        CrearComidaDTO polloComidaDTO = new CrearComidaDTO();
         polloComidaDTO.setAlimentos(Collections.singletonList("Pollo"));
 
         // Create DTOs for DiaAlimentacion
