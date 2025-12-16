@@ -1,5 +1,21 @@
+# COFIRA - Aplicación de Fitness y Nutrición
 
-# 🏋️ COFIRA - Sistema de Gestión de Gimnasios
+<div align="center">
+
+![Angular](https://img.shields.io/badge/Angular-20.3.0-DD0031?style=for-the-badge&logo=angular)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-3178C6?style=for-the-badge&logo=typescript)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.0-6DB33F?style=for-the-badge&logo=spring)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14-4169E1?style=for-the-badge&logo=postgresql)
+
+**Aplicación integral de fitness que te ayuda a gestionar tu entrenamiento, nutrición y progreso de manera eficiente.**
+
+[Características](#-características-principales) •
+[Instalación](#-instalación) •
+[Arquitectura](#-arquitectura) •
+[Documentación](#-documentación-técnica) •
+[Testing](#-testing)
+
+</div>
 
 **API RESTful** para la gestión integral de gimnasios, incluyendo planes de entrenamiento, rutinas de alimentación, ejercicios y usuarios. Desarrollado con **Spring Boot 3.4.0** y **PostgreSQL**, con autenticación JWT y arquitectura de microservicios.
 
