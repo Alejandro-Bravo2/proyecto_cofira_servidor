@@ -1072,14 +1072,6 @@ openssl rand -hex 64
 
 ---
 
-## 📋 Documentos Adicionales
-
-- [TESTS_SUMMARY.md](./cofira/TESTS_SUMMARY.md) - Resumen completo de tests
-- [EVALUACION_FINAL.md](./cofira/EVALUACION_FINAL.md) - Evaluación detallada del proyecto
-- [MEJORAS_IMPLEMENTADAS.md](./MEJORAS_IMPLEMENTADAS.md) - Historial de mejoras
-
----
-
 **Última actualización:** 14 de diciembre de 2025  
 **Versión:** 2.0  
 **Estado:** ✅ Producción Ready
