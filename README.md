@@ -3,7 +3,6 @@
 
 **API RESTful** para la gestión integral de gimnasios, incluyendo planes de entrenamiento, rutinas de alimentación, ejercicios y usuarios. Desarrollado con **Spring Boot 3.4.0** y **PostgreSQL**, con autenticación JWT y arquitectura de microservicios.
 
-**Estado del Proyecto:** ✅ **PRODUCCIÓN** | 🏆 **99.5% Rúbrica DWES v1.2** | ✅ **27 Tests Pasando**
 
 ---
 
