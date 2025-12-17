@@ -22,7 +22,7 @@
 
 ---
 
-## 📑 Tabla de Contenidos
+## Tabla de Contenidos
 
 - [Características Principales](#-características-principales)
 - [Arquitectura del Proyecto](#-arquitectura-del-proyecto)
@@ -38,24 +38,24 @@
 
 ---
 
-## ✨ Características Principales
+## Características Principales
 
-- 🔐 **Autenticación JWT** con roles (USER, ADMIN)
-- 🔄 **Sistema de blacklist** para tokens revocados (persistente en BD)
-- 🌐 **CORS configurado** para integración con cliente Angular
-- 📊 **Gestión completa** de planes, rutinas, ejercicios y alimentación
-- 🏋️ **Sistema de salas de gimnasio** y objetivos personalizados
-- 📈 **Actuator** para monitoreo de la aplicación
-- 📚 **Swagger/OpenAPI** para documentación interactiva
-- ✅ **Validaciones** con Bean Validation
-- 🐘 **PostgreSQL** como base de datos principal
-- 🐳 **Docker Compose** para despliegue de BD y pgAdmin
-- 🧪 **27 Tests Automatizados** con JUnit 5 + MockMvc (100% pasando)
-- 🗄️ **Migraciones con Flyway** para control de versiones de BD
+- **Autenticación JWT** con roles (USER, ADMIN)
+- **Sistema de blacklist** para tokens revocados (persistente en BD)
+- **CORS configurado** para integración con cliente Angular
+- **Gestión completa** de planes, rutinas, ejercicios y alimentación
+- **Sistema de salas de gimnasio** y objetivos personalizados
+- **Actuator** para monitoreo de la aplicación
+- **Swagger/OpenAPI** para documentación interactiva
+- **Validaciones** con Bean Validation
+- **PostgreSQL** como base de datos principal
+- **Docker Compose** para despliegue de BD y pgAdmin
+- **27 Tests Automatizados** con JUnit 5 + MockMvc (100% pasando)
+- **Migraciones con Flyway** para control de versiones de BD
 
 ---
 
-## 🏗️ Arquitectura del Proyecto
+## Arquitectura del Proyecto
 
 ```
 cofira/
@@ -116,22 +116,22 @@ cofira/
 
 ---
 
-## 🗄️ Diagrama Entidad-Relación
+## Diagrama Entidad-Relación
 
 ![Diagrama](./assets/diagramaPerfecto.svg)
 
-## 🔐 Seguridad y Autenticación JWT
+## Seguridad y Autenticación JWT
 
 ### Descripción General
 
 El sistema implementa **autenticación basada en JWT (JSON Web Token)** con las siguientes características:
 
-- ✅ **Tokens firmados** con algoritmo HS512
-- ✅ **Passwords hasheadas** con BCrypt
-- ✅ **Blacklist persistente** en base de datos
-- ✅ **CORS configurado** para cliente Angular
-- ✅ **Roles de autorización** (USER, ADMIN)
-- ✅ **Filtro JWT** para validación en cada request
+- **Tokens firmados** con algoritmo HS512
+- **Passwords hasheadas** con BCrypt
+- **Blacklist persistente** en base de datos
+- **CORS configurado** para cliente Angular
+- **Roles de autorización** (USER, ADMIN)
+- **Filtro JWT** para validación en cada request
 
 ### Configuración CORS
 
@@ -305,7 +305,7 @@ curl -X GET http://localhost:8080/api/usuarios/me \
 
 ### Rutas Públicas vs Protegidas
 
-#### 🌐 Rutas Públicas (sin autenticación)
+#### Rutas Públicas (sin autenticación)
 
 ```
 POST   /auth/register
@@ -315,7 +315,7 @@ GET    /swagger-ui/**        (Documentación)
 GET    /v3/api-docs/**       (OpenAPI)
 ```
 
-#### 🔒 Rutas Protegidas (requieren autenticación)
+#### Rutas Protegidas (requieren autenticación)
 
 | Endpoint                       | Método            | Rol Requerido | Descripción                 |
 | ------------------------------ | ----------------- | ------------- | --------------------------- |
@@ -413,26 +413,26 @@ public void cleanupExpiredTokens() {
 
 ### Extras Implementados
 
-#### ✅ Blacklist Persistente
+#### Blacklist Persistente
 
 - Tokens revocados guardados en PostgreSQL
 - Limpieza automática de tokens expirados
 - Tabla `token_revocado` con índice en `jti`
 
-#### ✅ Configuración Avanzada de CORS
+#### Configuración Avanzada de CORS
 
 - Permite cliente Angular en `http://localhost:4200`
 - Headers permitidos: `Authorization`, `Content-Type`
 - Métodos: `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`, `PATCH`
 - Credentials habilitados para cookies/sessions
 
-#### ✅ Swagger con Seguridad
+#### Swagger con Seguridad
 
 - Rutas `/swagger-ui.html` y `/v3/api-docs` públicas
 - Documentación de endpoints con anotaciones OpenAPI
 - Configuración de Bearer token en Swagger UI
 
-#### ✅ Actuator para Monitoreo
+#### Actuator para Monitoreo
 
 - Endpoints: `health`, `info`, `metrics`, `env`
 - Información de la aplicación en `/actuator/info`
@@ -440,14 +440,14 @@ public void cleanupExpiredTokens() {
 
 ---
 
-## 🚀 Instalación y Configuración
+## Instalación y Configuración
 
 ### Prerrequisitos
 
-- ☕ **Java 17** o superior
-- 🐳 **Docker** y **Docker Compose**
-- 🐘 **PostgreSQL 16** (o usar Docker)
-- 🔧 **Gradle 8.x** (incluido con wrapper)
+- **Java 17** o superior
+- **Docker** y **Docker Compose**
+- **PostgreSQL 16** (o usar Docker)
+- **Gradle 8.x** (incluido con wrapper)
 
 ### 1. Clonar el Repositorio
 
@@ -529,7 +529,7 @@ open http://localhost:8080/swagger-ui.html
 
 ---
 
-## 📡 Endpoints de la API
+## Endpoints de la API
 
 ### Autenticación (`/auth`)
 
@@ -632,7 +632,7 @@ open http://localhost:8080/swagger-ui.html
 
 ---
 
-## 📦 DTOs y Validaciones
+## DTOs y Validaciones
 
 ### DTOs de Autenticación
 
@@ -811,7 +811,7 @@ void deleteByExpiresAtBefore(@Param("date") LocalDateTime date);
 
 ---
 
-## 🧪 Testing y Cobertura
+## Testing y Cobertura
 
 ### Suite de Tests Automatizados
 
@@ -822,7 +822,7 @@ cd cofira
 ./gradlew test
 ```
 
-**Resultado:** ✅ **BUILD SUCCESSFUL** | 🎯 **100% de tests pasando**
+**Resultado:** **BUILD SUCCESSFUL** | **100% de tests pasando**
 
 #### Tests Implementados
 
@@ -914,38 +914,38 @@ Se incluye una colección completa en `postman/Cofira_API_Collection.json` con:
 
 ### Backend
 
-- ☕ **Java 17** - Lenguaje de programación
-- 🍃 **Spring Boot 3.4.0** - Framework principal (versión estable)
-- 🔐 **Spring Security 6.2** - Seguridad y autenticación
-- 🗄️ **Spring Data JPA** - Persistencia de datos
-- 🔑 **JWT (jjwt 0.12.6)** - Autenticación basada en tokens
-- ✅ **Bean Validation** - Validaciones de datos
+- **Java 17** - Lenguaje de programación
+- **Spring Boot 3.4.0** - Framework principal (versión estable)
+- **Spring Security 6.2** - Seguridad y autenticación
+- **Spring Data JPA** - Persistencia de datos
+- **JWT (jjwt 0.12.6)** - Autenticación basada en tokens
+- **Bean Validation** - Validaciones de datos
 
 ### Base de Datos
 
-- 🐘 **PostgreSQL 16** - Base de datos relacional
-- 🐳 **Docker Compose** - Orquestación de contenedores
-- 🔧 **Flyway** - Migraciones de base de datos
+- **PostgreSQL 16** - Base de datos relacional
+- **Docker Compose** - Orquestación de contenedores
+- **Flyway** - Migraciones de base de datos
 
 ### Herramientas
 
-- 📚 **Swagger/OpenAPI 3.0** - Documentación interactiva
-- 📊 **Spring Actuator** - Monitoreo y métricas
-- 🔨 **Gradle 9.2.1** - Gestión de dependencias
-- 🌱 **Lombok** - Reducción de boilerplate
-- 🐋 **pgAdmin 4** - Administración de PostgreSQL
+- **Swagger/OpenAPI 3.0** - Documentación interactiva
+- **Spring Actuator** - Monitoreo y métricas
+- **Gradle 9.2.1** - Gestión de dependencias
+- **Lombok** - Reducción de boilerplate
+- **pgAdmin 4** - Administración de PostgreSQL
 
 ### Testing
 
-- ✅ **JUnit 5** - Framework de testing
-- 🃏 **Mockito** - Mocking
-- 🔍 **MockMvc** - Testing de API REST
-- 🔐 **Spring Security Test** - Testing de seguridad
-- 🔍 **Postman** - Testing de API
+- **JUnit 5** - Framework de testing
+- **Mockito** - Mocking
+- **MockMvc** - Testing de API REST
+- **Spring Security Test** - Testing de seguridad
+- **Postman** - Testing de API
 
 ---
 
-## 📁 Archivos Importantes
+## Archivos Importantes
 
 ```
 cofira/
@@ -967,7 +967,7 @@ cofira/
 
 ---
 
-## 🚦 Comandos Útiles
+## Comandos Útiles
 
 ### Docker
 
@@ -1029,7 +1029,7 @@ curl -X GET http://localhost:8080/auth/me \
 
 ---
 
-## 📝 Notas Adicionales
+## Notas Adicionales
 
 ### Variables de Entorno
 
@@ -1070,7 +1070,7 @@ openssl rand -hex 64
 
 ---
 
-## 👤 Autor
+## Autor
 
 **Alejandro Bravo Calderón**
 
@@ -1078,16 +1078,10 @@ openssl rand -hex 64
 
 ---
 
-## 🔗 Enlaces Útiles
+## Enlaces Útiles
 
-- 📚 **Swagger UI**: http://localhost:8080/swagger-ui.html
-- 📊 **Actuator**: http://localhost:8080/actuator
-- 🐘 **pgAdmin**: http://localhost:5050
-- 📖 **Spring Boot Docs**: https://docs.spring.io/spring-boot/docs/current/reference/html/
-- 🔐 **JWT.io**: https://jwt.io
-
----
-
-**Última actualización:** 14 de diciembre de 2025  
-**Versión:** 2.0  
-**Estado:** ✅ Producción Ready
+- **Swagger UI**: http://localhost:8080/swagger-ui.html
+- **Actuator**: http://localhost:8080/actuator
+- **pgAdmin**: http://localhost:5050
+- **Spring Boot Docs**: https://docs.spring.io/spring-boot/docs/current/reference/html/
+- **JWT.io**: https://jwt.io
